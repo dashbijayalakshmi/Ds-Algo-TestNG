@@ -1,5 +1,6 @@
 package logic;
 
-public class Test {
+public class Test 
+{
 
 }
