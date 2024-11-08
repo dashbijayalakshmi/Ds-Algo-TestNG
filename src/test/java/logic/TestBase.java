@@ -54,8 +54,7 @@ public class TestBase
     
 	@BeforeTest
 	public void bbefore() throws Throwable
-	{
-		
+	{	
 		//Get browser Type from config file
 		logger.info("Loading Config file");
 		String browser = ConfigReader.getBrowserType();
@@ -76,7 +75,6 @@ public class TestBase
 		Properties prop = new Properties();
 		prop.load(fis);
 		String url = prop.getProperty("URL");
-		System.out.println(url);
 		driver.get(url);
 		System.out.println("Opening the url from properties file");
 		driver.findElement(getStarted).click();
