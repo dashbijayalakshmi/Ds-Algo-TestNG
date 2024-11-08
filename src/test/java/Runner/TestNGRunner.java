@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.testng.TestNG;
 
-public class TestNgRunner {
+public class TestNGRunner {
 
 	public static void main(String[] args) 
 	{
