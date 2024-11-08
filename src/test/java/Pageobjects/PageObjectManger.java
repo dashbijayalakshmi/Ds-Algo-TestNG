@@ -2,26 +2,24 @@ package Pageobjects;
 
 import org.openqa.selenium.WebDriver;
 
-//import org.openqa.selenium.WebDriver;
-
 import Utils.ConfigReader;
 import Utils.DriverFactory;
-//import Utils.TreePageObjects;
 
 public class PageObjectManger 
 {
+
 public WebDriver driver;
 public landingpageobjects landingpage;
 public Signinpageobjects signinpage;
 public DataStructPage datastructpage;
+
 public QueuePageObjects queuepage;
 public homepage_pageobject homepage;
 public DriverFactory driverfactory;
 public ConfigReader configreader;
+
 public GraphPageObjects graphpage;
 
-//public TreePageObjects treepageobj;
-//public Run_PythonCodes runpythoncode;
 public RegistrationPageObj registrationpage; 
 
 public ArraysDocPageObjects arraysdocpage;
@@ -56,17 +54,10 @@ public QueuePageObjects getQueuePage() {
 	return queuepage;
 }	
 
-//public QueuePageObjects getQueuePage() {
-//	queuepage=new QueuePageObjects(driver);
-//	return queuepage;
-
 public TreePageObjects gettreepageobj() {
 	treepageobj=new TreePageObjects(driver);
 	return treepageobj;
 }
-/*public Linkedlistpageobject getlinkedlistpageobj() {
-	linkedlistpageobj=new Linkedlistpageobject(driver);
-	return linkedlistpageobj;*/
 
 public StackPageObject getstackpageobj() {
 	stackpageobj=new StackPageObject(driver);
@@ -76,9 +67,6 @@ public Run_PythonCodes getruncodeobj()
 {
 	 runpythoncode=new Run_PythonCodes(driver);
 	 return runpythoncode;
-
-	
-
 
 }
 public RegistrationPageObj getregpageobj()

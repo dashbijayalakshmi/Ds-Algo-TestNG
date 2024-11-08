@@ -1,6 +1,5 @@
 package Pageobjects;
 
-//import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.fail;
 
@@ -18,7 +17,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import Utils.DriverFactory;
-//import io.cucumber.messages.types.Duration;
 
 public class LinkedlistPageObject1 {
 
