@@ -24,6 +24,7 @@ public class Signinpageobjects {
 	private By alert_message=By.xpath("//div[@role='alert']");
 	private By error_invalid_userPass=By.xpath("//div[contains(text(), 'Invalid Username and Password')]");
 	private By registerbtn_on_loginpage=By.xpath("//div[@class='col-sm']/a[@href='/register']");
+
 	public DriverFactory driverfactory;
 	
 	WebDriver driver;
