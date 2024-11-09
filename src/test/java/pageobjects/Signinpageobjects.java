@@ -1,15 +1,12 @@
 package pageobjects;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
-import Utils.DriverFactory;
+import utils.DriverFactory;
 
 public class Signinpageobjects {
 	private By register_link=By.linkText("Register");

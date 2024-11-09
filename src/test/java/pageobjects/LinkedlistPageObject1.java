@@ -1,9 +1,5 @@
 package pageobjects;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.fail;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,13 +8,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import Utils.DriverFactory;
-import io.cucumber.messages.types.Duration;
+import utils.DriverFactory;
 
 public class LinkedlistPageObject1 {
 

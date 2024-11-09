@@ -2,8 +2,8 @@ package pageobjects;
 
 import org.openqa.selenium.WebDriver;
 
-import Utils.ConfigReader;
-import Utils.DriverFactory;
+import utils.ConfigReader;
+import utils.DriverFactory;
 
 public class PageObjectManger {
 public WebDriver driver;

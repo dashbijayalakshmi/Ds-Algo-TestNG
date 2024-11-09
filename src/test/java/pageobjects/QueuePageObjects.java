@@ -2,20 +2,15 @@ package pageobjects;
 
 import java.util.ArrayList;
 import java.util.List;
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.fail;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
-import Utils.DriverFactory;
-import org.openqa.selenium.interactions.Actions;
-
-import org.openqa.selenium.interactions.Actions;
+import utils.DriverFactory;
 
 public class QueuePageObjects {
 	/*public WebDriver driver;
