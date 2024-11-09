@@ -13,7 +13,8 @@ public DriverFactory driverfactory;
 public TestContextSetup() throws Throwable {
 	//pageobjectmanager=new PageObjectManger(testbase.WebDriverManager());
 	driverfactory=new DriverFactory();
-	String browser = configreader.getBrowserType();
-	pageobjectmanager=new PageObjectManger(driverfactory.initializeDrivers(browser));
+	String browser = ConfigReader.getBrowserType();
+	//configreader.getBrowserType();
+	//pageobjectmanager=new PageObjectManger(driverfactory.initializeDrivers(browser));
 }
 }

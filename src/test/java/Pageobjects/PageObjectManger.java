@@ -42,7 +42,8 @@ public landingpageobjects getLandingpageobjects() {
 public Signinpageobjects getSigninpageobjects() {
 	signinpage=new Signinpageobjects(driver);
 	return signinpage;
-}public DataStructPage getdatastructPage() {
+}
+public DataStructPage getdatastructPage() {
 	datastructpage=new DataStructPage(driver);
 	return datastructpage;
 }public ArraysDocPageObjects getArrayDocPage() {
