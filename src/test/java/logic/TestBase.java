@@ -9,7 +9,11 @@ import org.apache.log4j.BasicConfigurator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
@@ -33,43 +37,31 @@ public class TestBase
 	    BasicConfigurator.configure();
 	}
 	
-//	public TestBase(TestContextSetup testcontextsetup) 
-//	{
-//		this.testcontextsetup = testcontextsetup;
-//		this.landingpage = testcontextsetup.pageobjectmanager.getLandingpageobjects();
-//		this.signinpage = testcontextsetup.pageobjectmanager.getSigninpageobjects();
-//		this.driverfactorypage = testcontextsetup.pageobjectmanager.getdriverfactory();
-//		this.configreaderfile = testcontextsetup.pageobjectmanager.getconfigreaderfile();
-//	}
-	
-	static WebDriver driver;
+	protected static WebDriver driver;
 	private By getStarted = By.linkText("Get Started");
     static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(DriverFactory.class);
 	
-    @BeforeTest
-	@Parameters({"browser"})
-	public void adefineBrowser(@Optional("chrome") String browser) throws Throwable {
-		ConfigReader.setBrowserType(browser);
-	}
+//    @BeforeMethod
+//    @Parameters({"browser"})
+//	public void adefineBrowser(@Optional("chrome") String browser) throws Throwable {
+//		//ConfigReader.setBrowserType(browser);
+//		System.out.println(browser);
+//	}
     
-	@BeforeTest
-	public void bbefore() throws Throwable
+	@BeforeMethod
+	@Parameters("browser")
+	public void bbefore(String browser) throws Throwable
 	{	
-		//Get browser Type from config file
-		logger.info("Loading Config file");
-		String browser = ConfigReader.getBrowserType();
-		//Initialize driver from driver factory
 		driverfactorypage = new DriverFactory();
 		driver = driverfactorypage.initializeDrivers(browser);
-		driverfactorypage.getdriver();
+		//driverfactorypage.getdriver();
 		logger.info("Initializing driver for : " + browser);
 	}
 	
-	@BeforeTest 
+	@BeforeMethod
 	public void cbefore() throws IOException
 	{
 		System.out.println("Launching the browser");
-		//driver = new ChromeDriver();
 		String path = System.getProperty("user.dir") + "/src/test/resources/global.properties";
 		FileInputStream fis = new FileInputStream(path);
 		Properties prop = new Properties();
@@ -80,8 +72,13 @@ public class TestBase
 		driver.findElement(getStarted).click();
 	}
 	
+	public static WebDriver getdriver()
+	{
+		return driver;
+		
+	}
 	
-	@AfterTest
+	@AfterMethod
 	public void after()
 	{
 		System.out.println("Closing the browser");

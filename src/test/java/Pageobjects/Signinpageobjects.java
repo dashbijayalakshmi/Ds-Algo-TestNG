@@ -27,11 +27,11 @@ public class Signinpageobjects {
 
 	public DriverFactory driverfactory;
 	
-	WebDriver driver;
+	private WebDriver driver;
 	public Signinpageobjects(WebDriver driver) {
-		//this.driver=driver;
-		driverfactory=new DriverFactory();
-		this.driver=driverfactory.getdriver();	
+		this.driver=driver;
+//		driverfactory=new DriverFactory();
+//		this.driver=driverfactory.getdriver();	
 	}
 	public boolean regis_sign(){
 		WebElement register=driver.findElement(register_link);
@@ -61,6 +61,7 @@ public class Signinpageobjects {
 //		
 //	}
 	public void click_signin_link() {
+		System.out.println("from pageobj file");
 		driver.findElement(signin).click();
 		
 	}

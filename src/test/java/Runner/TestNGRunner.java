@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.testng.TestNG;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
+
+import Utils.ConfigReader;
 
 public class TestNGRunner {
 
@@ -25,6 +30,7 @@ public class TestNGRunner {
 		//Call the run method
 		objTNG.run();
 		
+		 
 		
 	}
 

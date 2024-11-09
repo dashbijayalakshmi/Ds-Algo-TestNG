@@ -13,9 +13,12 @@
   <parameter name="browser" value="HtmlRunner"/>
 <test thread-count="1" name="Test">
     <parameter name="browser" value="chrome" />
-    <packages>
+    <!--<packages>
       <package name="logic"/>
-    </packages>
+    </packages>-->
+    <classes>
+		<class name="logic.SigninTest"></class>
+	</classes>
   </test>
   
 
