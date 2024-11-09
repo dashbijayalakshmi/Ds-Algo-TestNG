@@ -2,7 +2,7 @@ package utils;
 
 import org.openqa.selenium.WebDriver;
 
-import Pageobjects.PageObjectManger;
+import pageobjects.PageObjectManger;
 
 public class TestContextSetup {
 public WebDriver driver;
