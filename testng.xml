@@ -17,7 +17,7 @@
       <package name="logic"/>
     </packages>-->
     <classes>
-		<class name="logic.SigninTest"></class>
+		<class name="logic.TreeTest"></class>
 	</classes>
   </test>
   

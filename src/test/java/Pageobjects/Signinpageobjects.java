@@ -39,27 +39,6 @@ public class Signinpageobjects {
 		return register.isDisplayed() && sign_in.isDisplayed();
 	}
 	
-//	public void click_dropdownlist()
-//	{
-//		//driver.findElement(dropdown_arrow).click();
-//		boolean dropdown=driver.findElement(dropdown_arrow).isDisplayed();
-//		Assert.assertTrue(dropdown, "Dropdown list is not present");
-//		System.out.println("Dropdown field is present");
-//	}
-//	
-//	
-//	public List<String> datastructure() {
-//		driver.findElement(datastructure).click();
-//		List<String>ListData=new ArrayList<>();
-//		WebElement ddlist=driver.findElement(dropdownlist);
-//		List<WebElement>listitems=ddlist.findElements(elements);
-//		for(WebElement datastructure:listitems) {
-//			String text=datastructure.getText();
-//			ListData.add(text);
-//		}
-//		return ListData;
-//		
-//	}
 	public void click_signin_link() {
 		System.out.println("from pageobj file");
 		driver.findElement(signin).click();

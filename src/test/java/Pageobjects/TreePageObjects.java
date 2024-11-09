@@ -56,6 +56,10 @@ public class TreePageObjects {
 		this.driver=driverfactory.getdriver();	
 	}
 
+	public String get_Title() {
+		return driver.getTitle();
+	}
+	
 	public void click_tree_getstarted() {
 		driver.findElement(Tree_Get_Started).click();
 	}
