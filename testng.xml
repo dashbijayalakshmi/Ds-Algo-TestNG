@@ -9,9 +9,11 @@
   </test> 
 </suite> -->
 
-<suite name="Suite">
-  <parameter name="browser" value="HtmlRunner"/>
-<test thread-count="1" name="Test">
+<!-- just change parallel="tests" for cross browser testing-->
+<suite name="Suite" parallel="none" thread-count="1">
+ <parameter name="browser" value="HtmlRunner"/>
+ 
+<test name="TestChrome">
     <parameter name="browser" value="chrome" />
     <!--<packages>
       <package name="logic"/>

@@ -13,31 +13,38 @@ package Utils;
 	public class DriverFactory {
 		
 		public static WebDriver driver;
+		//private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 		
 		org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(DriverFactory.class);
 
 		public WebDriver initializeDrivers(String browser) {
 			
-			if (browser.equalsIgnoreCase("chrome")) {
-				logger.info("Testing on chrome");
+			if (browser.equalsIgnoreCase("chrome"))
+			{
+			logger.info("Testing on chrome");
 			driver = new ChromeDriver();
+			//driver.set(new ChromeDriver());
 			}
 			
 			else if (browser.equalsIgnoreCase("firefox")) {
 
 				logger.info("Testing on firefox");
 				driver = new FirefoxDriver();
+				//driver.set(new FirefoxDriver());
 			}  
 
+			
 			 else if (browser.equalsIgnoreCase("safari")) {
 
 				logger.info("Testing on safari");
 				driver = new SafariDriver();
+				//driver.set(new SafariDriver());
 				
 			} else if (browser.equalsIgnoreCase("edge")) {
 
 				logger.info("Testing on edge");
 				driver = new EdgeDriver();
+				//driver.set(new EdgeDriver());
 			}			
 			// Set Page load timeout
 

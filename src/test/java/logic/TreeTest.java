@@ -14,15 +14,19 @@ import Pageobjects.TreePageObjects;
 
 public class TreeTest extends TestBase
 {
+	Signinpageobjects signinpage;
+	TreePageObjects treepageobj;
+	Run_PythonCodes runpythoncode;
+	
 	@BeforeMethod()
 	public void login()
 	{
-		Signinpageobjects signinpage = new Signinpageobjects(driver);
+		signinpage = new Signinpageobjects();
 		signinpage.click_signin_link();
 		signinpage.enter_username("ninjatesterss");
 		signinpage.enter_password("ninja@123");
 		signinpage.click_login_btn();
-		TreePageObjects treepageobj = new TreePageObjects(driver);
+		treepageobj = new TreePageObjects();
 		treepageobj.click_tree_getstarted();
 	}
 	
@@ -41,7 +45,6 @@ public class TreeTest extends TestBase
 	@Test
 	public void tc02_oot_page() 
 	{
-		TreePageObjects treepageobj = new TreePageObjects(driver);
 		treepageobj.click_overview_of_tree();
 		String actualtitle = treepageobj.get_Title();
 		String expectedtitle = "Overview of Trees";
@@ -52,7 +55,6 @@ public class TreeTest extends TestBase
 	@Test
 	public void tc03_tryhere_oot() 
 	{
-		TreePageObjects treepageobj = new TreePageObjects(driver);
 		treepageobj.click_overview_of_tree();
 		treepageobj.click_TryHere_from_OverviewOfTrees();
 		String actualt_title = treepageobj.get_Title();
@@ -64,10 +66,9 @@ public class TreeTest extends TestBase
 	@Test
 	public void tc04_validPyhtoncode_oot()
 	{
-		TreePageObjects treepageobj = new TreePageObjects(driver);
 		treepageobj.click_overview_of_tree();
 		treepageobj.click_TryHere_from_OverviewOfTrees();
-		Run_PythonCodes runpythoncode = new Run_PythonCodes(driver);
+		runpythoncode = new Run_PythonCodes();
 		runpythoncode.validcode_editor();
 		runpythoncode.run_button();
 		runpythoncode.Ouptput_ValidCode();
@@ -76,10 +77,9 @@ public class TreeTest extends TestBase
 	@Test
 	public void tc05_invalid_code_oot()
 	{
-		TreePageObjects treepageobj = new TreePageObjects(driver);
 		treepageobj.click_overview_of_tree();
 		treepageobj.click_TryHere_from_OverviewOfTrees();
-		Run_PythonCodes runpythoncode = new Run_PythonCodes(driver);
+		runpythoncode = new Run_PythonCodes();
 		runpythoncode.invalidcode_editor();
 		runpythoncode.run_button();
 		runpythoncode.error_alert();
@@ -88,7 +88,6 @@ public class TreeTest extends TestBase
 	@Test
 	public void tc06_gobackfromoot()
 	{
-		TreePageObjects treepageobj = new TreePageObjects(driver);
 		treepageobj.click_overview_of_tree();
 		treepageobj.click_TryHere_from_OverviewOfTrees();
 		treepageobj.goback_frmTryeditor();
@@ -103,7 +102,6 @@ public class TreeTest extends TestBase
 	@Test
 	public void tc07_terminologies()
 	{
-		TreePageObjects treepageobj = new TreePageObjects(driver);
 		treepageobj.click_terminologies();
 		String actual_title = treepageobj.get_Title();
 		String expected_title = "Terminologies";
@@ -115,7 +113,6 @@ public class TreeTest extends TestBase
 	@Test
 	public void tc08_editorpage_ter()
 	{
-		TreePageObjects treepageobj = new TreePageObjects(driver);
 		treepageobj.click_terminologies();
 		treepageobj.click_tryHere_on_Terminologies();
 		String actual_tit = treepageobj.get_Title();
@@ -127,10 +124,9 @@ public class TreeTest extends TestBase
 	@Test
 	public void tc09_validcode_ter()
 	{
-		TreePageObjects treepageobj = new TreePageObjects(driver);
 		treepageobj.click_terminologies();
 		treepageobj.click_tryHere_on_Terminologies();
-		Run_PythonCodes runpythoncode = new Run_PythonCodes(driver);
+		runpythoncode = new Run_PythonCodes();
 		runpythoncode.validcode_editor();
 		runpythoncode.run_button();
 		runpythoncode.Ouptput_ValidCode();	
@@ -139,10 +135,10 @@ public class TreeTest extends TestBase
 	@Test
 	public void tc10_invalidcode_ter()
 	{
-		TreePageObjects treepageobj = new TreePageObjects(driver);
+		
 		treepageobj.click_terminologies();
 		treepageobj.click_tryHere_on_Terminologies();
-		Run_PythonCodes runpythoncode = new Run_PythonCodes(driver);
+		runpythoncode = new Run_PythonCodes();
 		runpythoncode.invalidcode_editor();
 		runpythoncode.run_button();
 		runpythoncode.error_alert();	
@@ -151,7 +147,7 @@ public class TreeTest extends TestBase
 	@Test
 	public void tc11_goback_ter()
 	{
-		TreePageObjects treepageobj = new TreePageObjects(driver);
+		
 		treepageobj.click_terminologies();
 		treepageobj.click_tryHere_on_Terminologies();
 		treepageobj.goback_frmTryeditor();

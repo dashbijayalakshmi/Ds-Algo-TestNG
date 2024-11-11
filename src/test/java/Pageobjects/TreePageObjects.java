@@ -50,7 +50,7 @@ public class TreePageObjects {
 	public DriverFactory driverfactory;
 	
 	WebDriver driver;
-	public TreePageObjects(WebDriver driver) {
+	public TreePageObjects() {
 		//this.driver=driver;
 		driverfactory=new DriverFactory();
 		this.driver=driverfactory.getdriver();	

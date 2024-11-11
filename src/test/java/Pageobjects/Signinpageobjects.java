@@ -28,7 +28,7 @@ public class Signinpageobjects {
 	public DriverFactory driverfactory;
 	
 	private WebDriver driver;
-	public Signinpageobjects(WebDriver driver) {
+	public Signinpageobjects() {
 		this.driver=driver;
 //		driverfactory=new DriverFactory();
 //		this.driver=driverfactory.getdriver();	
@@ -39,6 +39,7 @@ public class Signinpageobjects {
 		return register.isDisplayed() && sign_in.isDisplayed();
 	}
 	
+
 	public void click_signin_link() {
 		System.out.println("from pageobj file");
 		driver.findElement(signin).click();
@@ -47,7 +48,6 @@ public class Signinpageobjects {
 	public void enter_username(String string) {
 		driver.findElement(username).sendKeys(string);
 		
-
 	}
 	public void enter_password(String string1) {
 		driver.findElement(password).sendKeys(string1);

@@ -15,6 +15,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
@@ -37,29 +38,25 @@ public class TestBase
 	    BasicConfigurator.configure();
 	}
 	
-	protected static WebDriver driver;
+	WebDriver driver;
+	//protected static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 	private By getStarted = By.linkText("Get Started");
     static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(DriverFactory.class);
 	
-//    @BeforeMethod
-//    @Parameters({"browser"})
-//	public void adefineBrowser(@Optional("chrome") String browser) throws Throwable {
-//		//ConfigReader.setBrowserType(browser);
-//		System.out.println(browser);
-//	}
     
 	@BeforeMethod
 	@Parameters("browser")
-	public void bbefore(String browser) throws Throwable
+	public void abefore(String browser) throws Throwable
 	{	
+		driver = new ThreadLocal<WebDriver>();
 		driverfactorypage = new DriverFactory();
-		driver = driverfactorypage.initializeDrivers(browser);
+		driver.set(driverfactorypage.initializeDrivers(browser));
 		//driverfactorypage.getdriver();
 		logger.info("Initializing driver for : " + browser);
 	}
 	
 	@BeforeMethod
-	public void cbefore() throws IOException
+	public void bbefore() throws IOException
 	{
 		System.out.println("Launching the browser");
 		String path = System.getProperty("user.dir") + "/src/test/resources/global.properties";
@@ -67,22 +64,27 @@ public class TestBase
 		Properties prop = new Properties();
 		prop.load(fis);
 		String url = prop.getProperty("URL");
-		driver.get(url);
+		driver.get().get(url);
 		System.out.println("Opening the url from properties file");
-		driver.findElement(getStarted).click();
+		driver.get().findElement(getStarted).click();
 	}
 	
-	public static WebDriver getdriver()
-	{
-		return driver;
+	@DataProvider (name="Logindataprovider")
+		public Object [][] dataprovider_method()
+		{
+			return new Object[][] {{"ninjatesterss" , "ninja@123"}};
+			
+		}
+	
 		
-	}
+	
+	
 	
 	@AfterMethod
 	public void after()
 	{
 		System.out.println("Closing the browser");
-		driver.quit();
+		driver.get().quit();
 	}
 	
 }
