@@ -20,16 +20,23 @@ public class TreeTest extends TestBase
 {
 	Signinpageobjects signinpage;
 	TreePageObjects treepageobj;
+
+	Run_PythonCodes runpythoncode;
+
 	
 	@BeforeMethod()
 	public void login()
 	{
+
 		signinpage = new Signinpageobjects(driver);
+
 		signinpage.click_signin_link();
 		signinpage.enter_username("ninjatesterss");
 		signinpage.enter_password("ninja@123");
 		signinpage.click_login_btn();
-		treepageobj = new TreePageObjects(driver);
+
+		treepageobj = new TreePageObjects();
+
 		treepageobj.click_tree_getstarted();
 	}
 	
@@ -54,6 +61,7 @@ public class TreeTest extends TestBase
 	@Test
 	public void tc01_reqtreeltopics() 
 	{
+
 		TreePageObjects treepageobj = new TreePageObjects(driver);
 		treepageobj.tree_topics_covered_section();
 		List<String> Expected_list = Arrays.asList("Overview of Trees","Terminologies","Types of Trees","Tree Traversals","Traversals-Illustration","Binary Trees","Types of Binary Trees","Implementation in Python","Binary Tree Traversals","Implementation of Binary Trees","Applications of Binary trees","Binary Search Trees","Implementation Of BST");
@@ -66,6 +74,7 @@ public class TreeTest extends TestBase
 	@Test
 	public void tc02_oot_page() 
 	{
+
 		treepageobj.click_overview_of_tree();
 		String actualtitle = treepageobj.get_Title();
 		String expectedtitle = "Overview of Trees";
@@ -89,7 +98,7 @@ public class TreeTest extends TestBase
 	{
 		treepageobj.click_overview_of_tree();
 		treepageobj.click_TryHere_from_OverviewOfTrees();
-		Run_PythonCodes runpythoncode = new Run_PythonCodes(driver);
+		runpythoncode = new Run_PythonCodes();
 		runpythoncode.validcode_editor();
 		runpythoncode.run_button();
 		runpythoncode.Ouptput_ValidCode();
@@ -100,7 +109,7 @@ public class TreeTest extends TestBase
 	{
 		treepageobj.click_overview_of_tree();
 		treepageobj.click_TryHere_from_OverviewOfTrees();
-		Run_PythonCodes runpythoncode = new Run_PythonCodes(driver);
+		runpythoncode = new Run_PythonCodes();
 		runpythoncode.invalidcode_editor();
 		runpythoncode.run_button();
 		runpythoncode.error_alert();
@@ -147,7 +156,7 @@ public class TreeTest extends TestBase
 	{
 		treepageobj.click_terminologies();
 		treepageobj.click_tryHere_on_Terminologies();
-		Run_PythonCodes runpythoncode = new Run_PythonCodes(driver);
+		runpythoncode = new Run_PythonCodes();
 		runpythoncode.validcode_editor();
 		runpythoncode.run_button();
 		runpythoncode.Ouptput_ValidCode();	
@@ -156,9 +165,12 @@ public class TreeTest extends TestBase
 	@Test
 	public void tc10_invalidcode_ter()
 	{
+
+		
+
 		treepageobj.click_terminologies();
 		treepageobj.click_tryHere_on_Terminologies();
-		Run_PythonCodes runpythoncode = new Run_PythonCodes(driver);
+		runpythoncode = new Run_PythonCodes();
 		runpythoncode.invalidcode_editor();
 		runpythoncode.run_button();
 		runpythoncode.error_alert();	
@@ -167,6 +179,7 @@ public class TreeTest extends TestBase
 	@Test
 	public void tc11_goback_ter()
 	{
+
 		treepageobj.click_terminologies();
 		treepageobj.click_tryHere_on_Terminologies();
 		treepageobj.goback_frmTryeditor();
