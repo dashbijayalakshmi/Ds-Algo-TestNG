@@ -2,10 +2,14 @@ package logic;
 
 import static org.testng.Assert.assertEquals;
 
+import java.util.Arrays;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Factory;
 import org.testng.annotations.Test;
 
 import Pageobjects.Run_PythonCodes;
@@ -14,34 +18,54 @@ import Pageobjects.TreePageObjects;
 
 public class TreeTest extends TestBase
 {
+	Signinpageobjects signinpage;
+	TreePageObjects treepageobj;
+	
 	@BeforeMethod()
 	public void login()
 	{
-		Signinpageobjects signinpage = new Signinpageobjects(driver);
+		signinpage = new Signinpageobjects(driver);
 		signinpage.click_signin_link();
 		signinpage.enter_username("ninjatesterss");
 		signinpage.enter_password("ninja@123");
 		signinpage.click_login_btn();
-		TreePageObjects treepageobj = new TreePageObjects(driver);
+		treepageobj = new TreePageObjects(driver);
 		treepageobj.click_tree_getstarted();
 	}
 	
-//	@Test
-//	public void tc01_reqtreeltopics() throws InterruptedException
+//	@Test(dataProvider = "Logindataprovider" , dataProviderClass=TestBase.class)
+//	public void tc01_loginusingdataprovider(String username, String password) 
 //	{
-//		TreePageObjects treepageobj = new TreePageObjects(driver);
-//		treepageobj.tree_topics_covered_section();
-//		List<String> Expected_list = TreeTopics.asList();
-//		List<String> Actual_list = treepageobj.tree_topicscovered_list();
-//		System.out.println("Expected List is:" + Expected_list);
-//		System.out.println("Actual List is:" + Actual_list);
-//		Assert.assertEquals(Expected_list, Actual_list, "List is not present");
+//		signinpage = new Signinpageobjects(driver);
+//		signinpage.click_signin_link();
+//		driver.findElement(By.cssSelector("#id_username")).sendKeys(username);
+//		driver.findElement(By.id("id_password")).sendKeys(password);
+//		signinpage.click_login_btn();	
 //	}
+	
+	@DataProvider(name="TreeTopics")
+	public Object[][] treetopicsmethod()
+	{
+		return new Object[][] {{"OOT"},{"Terminologies"},{"xyz"}};
+		
+		
+	}
+	
+	@Test
+	public void tc01_reqtreeltopics() 
+	{
+		TreePageObjects treepageobj = new TreePageObjects(driver);
+		treepageobj.tree_topics_covered_section();
+		List<String> Expected_list = Arrays.asList("Overview of Trees","Terminologies","Types of Trees","Tree Traversals","Traversals-Illustration","Binary Trees","Types of Binary Trees","Implementation in Python","Binary Tree Traversals","Implementation of Binary Trees","Applications of Binary trees","Binary Search Trees","Implementation Of BST");
+		List<String> Actual_list = treepageobj.tree_topicscovered_list();
+		System.out.println("Expected List is:" + Expected_list);
+		System.out.println("Actual List is:" + Actual_list);
+		Assert.assertEquals(Expected_list, Actual_list, "List is not present");
+	}
 	
 	@Test
 	public void tc02_oot_page() 
 	{
-		TreePageObjects treepageobj = new TreePageObjects(driver);
 		treepageobj.click_overview_of_tree();
 		String actualtitle = treepageobj.get_Title();
 		String expectedtitle = "Overview of Trees";
@@ -52,7 +76,6 @@ public class TreeTest extends TestBase
 	@Test
 	public void tc03_tryhere_oot() 
 	{
-		TreePageObjects treepageobj = new TreePageObjects(driver);
 		treepageobj.click_overview_of_tree();
 		treepageobj.click_TryHere_from_OverviewOfTrees();
 		String actualt_title = treepageobj.get_Title();
@@ -64,7 +87,6 @@ public class TreeTest extends TestBase
 	@Test
 	public void tc04_validPyhtoncode_oot()
 	{
-		TreePageObjects treepageobj = new TreePageObjects(driver);
 		treepageobj.click_overview_of_tree();
 		treepageobj.click_TryHere_from_OverviewOfTrees();
 		Run_PythonCodes runpythoncode = new Run_PythonCodes(driver);
@@ -76,7 +98,6 @@ public class TreeTest extends TestBase
 	@Test
 	public void tc05_invalid_code_oot()
 	{
-		TreePageObjects treepageobj = new TreePageObjects(driver);
 		treepageobj.click_overview_of_tree();
 		treepageobj.click_TryHere_from_OverviewOfTrees();
 		Run_PythonCodes runpythoncode = new Run_PythonCodes(driver);
@@ -88,7 +109,6 @@ public class TreeTest extends TestBase
 	@Test
 	public void tc06_gobackfromoot()
 	{
-		TreePageObjects treepageobj = new TreePageObjects(driver);
 		treepageobj.click_overview_of_tree();
 		treepageobj.click_TryHere_from_OverviewOfTrees();
 		treepageobj.goback_frmTryeditor();
@@ -103,7 +123,6 @@ public class TreeTest extends TestBase
 	@Test
 	public void tc07_terminologies()
 	{
-		TreePageObjects treepageobj = new TreePageObjects(driver);
 		treepageobj.click_terminologies();
 		String actual_title = treepageobj.get_Title();
 		String expected_title = "Terminologies";
@@ -115,7 +134,6 @@ public class TreeTest extends TestBase
 	@Test
 	public void tc08_editorpage_ter()
 	{
-		TreePageObjects treepageobj = new TreePageObjects(driver);
 		treepageobj.click_terminologies();
 		treepageobj.click_tryHere_on_Terminologies();
 		String actual_tit = treepageobj.get_Title();
@@ -127,7 +145,6 @@ public class TreeTest extends TestBase
 	@Test
 	public void tc09_validcode_ter()
 	{
-		TreePageObjects treepageobj = new TreePageObjects(driver);
 		treepageobj.click_terminologies();
 		treepageobj.click_tryHere_on_Terminologies();
 		Run_PythonCodes runpythoncode = new Run_PythonCodes(driver);
@@ -139,7 +156,6 @@ public class TreeTest extends TestBase
 	@Test
 	public void tc10_invalidcode_ter()
 	{
-		TreePageObjects treepageobj = new TreePageObjects(driver);
 		treepageobj.click_terminologies();
 		treepageobj.click_tryHere_on_Terminologies();
 		Run_PythonCodes runpythoncode = new Run_PythonCodes(driver);
@@ -151,7 +167,6 @@ public class TreeTest extends TestBase
 	@Test
 	public void tc11_goback_ter()
 	{
-		TreePageObjects treepageobj = new TreePageObjects(driver);
 		treepageobj.click_terminologies();
 		treepageobj.click_tryHere_on_Terminologies();
 		treepageobj.goback_frmTryeditor();

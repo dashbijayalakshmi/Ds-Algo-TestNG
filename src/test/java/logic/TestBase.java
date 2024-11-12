@@ -15,6 +15,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
@@ -75,6 +76,13 @@ public class TestBase
 	public static WebDriver getdriver()
 	{
 		return driver;
+		
+	}
+	
+	@DataProvider (name="Logindataprovider")
+	public Object [][] dataprovider_method()
+	{
+		return new Object[][] {{"ninjatesterss" , "ninja@123"}};
 		
 	}
 	
