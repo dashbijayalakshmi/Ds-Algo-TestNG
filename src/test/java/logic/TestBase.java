@@ -80,6 +80,13 @@ public class TestBase
 	
 	
 	
+	@DataProvider (name="Logindataprovider")
+	public Object [][] dataprovider_method()
+	{
+		return new Object[][] {{"ninjatesterss" , "ninja@123"}};
+		
+	}
+	
 	@AfterMethod
 	public void after()
 	{
